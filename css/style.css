@@ -1,0 +1,13 @@
+/*Custom properties*/
+:root{
+    --bg-color: rgb(255, 255, 255);
+    --primary-color: black;
+}
+
+/*Reset*/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: var(--bg-color);
+}
