@@ -18,6 +18,11 @@
 
         <main>
             <div id="app">
+                <ul>
+                    <li v-for="(mailAddress, indexMail) in mailList">
+                        N.{{indexMail + 1}} <span>{{mailAddress}}</span>
+                    </li>
+                </ul>
             </div>
         </main>
 
