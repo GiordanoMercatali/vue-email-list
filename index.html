@@ -8,7 +8,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.min.js" integrity="sha512-WW8/jxkELe2CAiE4LvQfwm1rajOS8PHasCCx+knHG0gBHt8EXxS6T6tJRTGuDQVnluuAvMxWF4j8SNFDKceLFg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
         <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
         <link rel="stylesheet" href="css/style.css">
-		<title> Test flex </title>
+		<title> Mails </title>
 	</head>
 
     <body> 
@@ -18,11 +18,13 @@
 
         <main>
             <div id="app">
-                <ul>
-                    <li v-for="(mailAddress, indexMail) in mailList">
-                        N.{{indexMail + 1}} <span>{{mailAddress}}</span>
+                <button class="btn btn-primary" @click="getEmails">Generate</button>
+                <ul v-if="mailList.length === 10">
+                    <li v-for="(mailAddress, indexMail) in mailList" :key="indexMail">
+                        N.{{indexMail + 1}} {{mailAddress}}
                     </li>
                 </ul>
+                <p v-if="isLoading === true">Loading...</p>
             </div>
         </main>
 

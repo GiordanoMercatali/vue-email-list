@@ -4,12 +4,14 @@ createApp({
     data(){
         return{
             mailList: [],
-            
+            isLoading: false,
         };
     },
 
     methods:{
         getEmails: function(){
+            this.mailList = [];
+            this.isLoading = true;
             for(let i = 0; i < 10; i++){
                 axios
             .get("https://flynn.boolean.careers/exercises/api/random/mail")
@@ -17,22 +19,19 @@ createApp({
                 console.log(resp.data.response);
                 this.mailList.push(resp.data.response);
                 console.log(this.mailList);
-            })
+
+                if(this.mailList.length === 10){
+                        this.isLoading = false;
+                    }
+                })
             console.log(this.mailList[i]);
             }
             return this.mailList;
-        }
+        } 
     },
 
     created(){
-        // axios
-        //     .get("https://flynn.boolean.careers/exercises/api/random/mail")
-        //     .then((resp)=>{
-        //         this.mailList[0] = resp.data.response;
-        //         console.log(this.mailList[0]);
-        //     })
-
-        this.getEmails();
+        // this.getEmails();
     },
 
 
